@@ -70,7 +70,7 @@ function updateFireIntensityPerPixel(currentPixelIndex) {
     return;
   }
 
-  const decay = Math.floor(Math.random()*3);
+  const decay = Math.floor(Math.random() * 3);
   const belowPixelIndexFireIntensity =
     firePixelsArray[belowPixelIndex] - decay >= 0
       ? firePixelsArray[belowPixelIndex] - decay
@@ -85,16 +85,16 @@ function renderFire() {
     for (let column = 0; column < fireWidth; column++) {
       const pixelIndex = column + fireWidth * row;
       const fireIntensity = firePixelsArray[pixelIndex];
-      const debug = false
+      const debug = false;
       if (debug === true) {
-        html += "<td class=pixel>"
+        html += "<td class=pixel>";
         html += `<div class="pixel-index">${pixelIndex}</div>`;
         html += fireIntensity;
         html += "</td>";
       } else {
-          const color = fireColorsPalette[fireIntensity]
-          const colorString = `${color.r}, ${color.g}, ${color.b}`
-          html+=`<td class=pixel style= "background-color: rgb(${colorString})"></td>`
+        const color = fireColorsPalette[fireIntensity];
+        const colorString = `${color.r}, ${color.g}, ${color.b}`;
+        html += `<td class=pixel style= "background-color: rgb(${colorString})"></td>`;
       }
     }
     html += "</tr>";
